@@ -1,8 +1,9 @@
 function updateClocks() {
   const now = new Date();
 
-  const nzTime = now.toLocaleTimeString('en-GB', { timeZone: 'Pacific/Auckland' });
-  const scotlandTime = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/London' });
+  const options = { timeZone: 'Pacific/Auckland', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
+  const nzTime = now.toLocaleTimeString('en-US', options);
+  const scotlandTime = now.toLocaleTimeString('en-US', { ...options, timeZone: 'Europe/London' });
 
   document.getElementById('nz-time').textContent = nzTime;
   document.getElementById('scotland-time').textContent = scotlandTime;
